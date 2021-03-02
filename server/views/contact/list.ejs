@@ -1,0 +1,105 @@
+<!-- 
+
+    File name: list.ejs
+    Created By: Rahul Kumar
+    Student ID: 301174739
+    Created on: 01 March, 2021
+
+-->
+
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+  
+
+          <!--Main Content section-->
+          <main class="container">
+            <h1 class="display-4">
+                <%= title %>
+            </h1>
+            <div class="row">
+                <div class="col-lg-12">
+                    <% if(typeof displayName=='string' && displayName) { %>
+                        <a href="/contact/add" class="btn btn-primary btn-lg btn-block" role="button">
+                            <i class="fas fa-plus-circle"></i> Add a Contact</a>
+                        <% } %>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <br>
+                    <table class="table table-bordered table-striped table-hover ">
+                        <!-- Header Row-->
+                        <thead class="table-primary">
+                            <% if(typeof displayName=='string' && displayName) { %>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Contact Number</th>
+                                    <th>Email ID</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <% } else { %>
+                                    <tr>
+                                        <th class="text-center col-2">Name</th>
+                                        <th class="text-center col-2">Contact Number</th>
+                                        <th class="text-center col-3">Email ID</th>
+                                    </tr>
+                                    <% } %>
+                                        </tr>
+                        </thead>
+                        <!-- Repeatable Template Row -->
+                        <tbody>
+                            <% for(let count=0; count < contactList.length; count++) { %>
+                                <% if(typeof displayName=='string' && displayName) { %>
+                                    <tr>
+                                        <td>
+                                            <%= contactList[count].name %>
+                                        </td>
+                                        <td>
+                                            <%= contactList[count].number %>
+                                        </td>
+                                        <td>
+                                            <%= contactList[count].email %>
+                                        </td>
+                                        <td>
+                                            <a href="/contact/edit/<%= contactList[count]._id %>"
+                                                class="btn btn-primary">
+                                                <i class="fas fa-pencil-alt"></i> Edit</a>
+                                        </td>
+                                        <td>
+                                            <a href="/contact/delete/<%= contactList[count]._id %>"
+                                                class="btn btn-danger">
+                                                <i class="fas fa-trash-alt"></i> Delete</a>
+                                        </td>
+                                    </tr>
+                                    <% } else { %>
+                                        <tr>
+                                            <td>
+                                                <%= contactList[count].name %>
+                                            </td>
+                                            <td>
+                                                <%= contactList[count].number %>
+                                            </td>
+                                            <td>
+                                                <%= contactList[count].email %>
+                                            </td>
+                                        </tr>
+                                        <% } %>
+                                            <% } %>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+  
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
+  
+
+
+
+
+

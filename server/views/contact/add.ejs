@@ -1,0 +1,45 @@
+<!-- 
+
+    File name: add.ejs
+    Created By: Rahul Kumar
+    Student ID: 301174739
+    Created on: 01 March, 2021
+
+-->
+
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Main Content section -->
+<main class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-12">
+            <h1 class="display-4"><%= title %></h1>
+            <form action="/contact/add" method="POST">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">First Name</label>
+                    <input class="form-control" id="name" name="name"
+                        aria-describedby="Name" placeholder="Enter Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Contact Number</label>
+                    <input class="form-control" id="contactNumber" name="contactNumber"
+                        aria-describedby="Contact Number" placeholder="Enter Contact Number" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email address</label>
+                    <input type="email" class="form-control" id="emailId" name="emailId"
+                        aria-describedby="emailHelp" placeholder="Enter email" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Add New Contact</button>
+                <button href="/contact/list" class="btn btn-warning">Cancel</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>

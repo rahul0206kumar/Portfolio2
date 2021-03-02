@@ -1,0 +1,42 @@
+<!-- 
+
+    File name: edit.ejs
+    Created By: Rahul Kumar
+    Student ID: 301174739
+    Created on: 01 March, 2021
+-->
+
+<%- include ../partials/header.ejs %>
+
+<%- include ../partials/main_nav.ejs %>
+
+<!-- Main Content section -->
+<main class="container">
+    <div class="row">
+        <div class="col-md-offset-3 col-md-12">
+            <h1 class="display-4"><%= title %></h1>
+            <form  method="POST">
+                <div class="form-group">
+                  <label for="contactName">Name</label>
+                  <input type="text" class="form-control" name="name" id="name" value="<%= contact.contactToEdit.name %>" required>
+                </div>
+                <div class="form-group">
+                  <label for="contactNumber">Number</label>
+                  <input type="text" class="form-control" name="number" id="number" value="<%= contact.contactToEdit.number %>" required>
+                </div>
+                <div class="form-group">
+                    <label for="contactEmail">Email</label>
+                    <input type="text" class="form-control" name="emailId" id="emailId" value="<%= contact.contactToEdit.email %>" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Update Contact</button>
+                <a href="/contact/delete/<%= contact._id %>" class="btn btn-danger">Delete</a>
+                <button href="/contact/list" class="btn btn-warning">Cancel</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+
+<%- include ../partials/bottom_nav.ejs %>  
+
+<%- include ../partials/footer.ejs %>
